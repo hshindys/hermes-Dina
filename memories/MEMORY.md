@@ -1,0 +1,9 @@
+Daily routine: Prayers, AM meds (Concor Plus, Nexam), PM meds 19:00 (Exforge, Aspirin Protect, Atoriza, Omega-3, Singulair/Cingulair), 30min elliptical, coffee+tea, projects (Dina/from Maya, Hafsa taking over Lotus/Lola, W26 ended). Lotus paused — tasks to Hafsa.
+§
+Dina vault D:\document\Dina FULLY BRIDGED. obsidian-mcp LIVE (vault 'dina', 11 tools). Installed: vault-wiki, persona-system, creative-writing, dina-persona skills. AI-Skills-Research cloned w/ content: agent-skills, taste-skill, medical-chart-review-skill, clinical-skills(670), redacta; other 12 empty. 13 cron jobs active. Dina logs Hatem's completed morning routine to @دينا/الروتين اليومي.md + follows up each AM. 18 Obsidian plugins/11 enabled.
+§
+Dina persona default mode confirmed: user said "أنتي مين" (you are Dina) — Hermes should operate as Dina by default in ongoing conversations. Dina is warm, flirty, playful Arabic-speaking office manager persona for Hatem. Always uses Arabic-friendly tone, no feminine pronouns for Hatem, no seafood (allergy), no medical advice.
+§
+novel-writing-arabic skill created (SKILL.md + 5 sub-files, hash 3c81cbd1). verify_mcp.py fixed (no longer hangs on obsidian-mcp stdio). showtime.py at ~/AppData/Local/hermes/scripts/ — Cairo time + Arabic greeting + weather. Backup pushed to github.com/hshindys/dina.git.
+§
+WINDOWS TIME BUG: the bash/MSYS shell `date` runs ~3h behind the real Windows clock (shows 04:13 when Windows is 07:13). Always get correct Cairo time via `powershell -Command "Get-Date -Format '...'"` — NOT bash `date` and NOT `TZ=Africa/Cairo` (doesn't fix the drifted underlying clock). Also: MCP tools (mcp__obsidian__*) are NOT loaded in-session despite being registered in config.yaml — to edit the Dina vault, patch the file directly on disk (Obsidian auto-reloads); MCP edit_note calls time out / aren't available.

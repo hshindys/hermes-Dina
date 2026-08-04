@@ -1,0 +1,233 @@
+{
+  "version": 1,
+  "installed": {
+    "jellyfin-control": {
+      "source": "clawhub",
+      "identifier": "jellyfin-control",
+      "trust_level": "community",
+      "scan_verdict": "caution",
+      "content_hash": "sha256:e763674c6a49c4e6",
+      "install_path": "jellyfin-control",
+      "files": [
+        "cli.js",
+        "jellyfin.js",
+        "package.json",
+        "README.md",
+        "skill-card.md",
+        "SKILL.md",
+        "tv.js",
+        "_meta.json"
+      ],
+      "metadata": {},
+      "scan_provenance": {
+        "source": "jellyfin-control",
+        "source_url": "jellyfin-control",
+        "bundle_hash": "sha256:e763674c6a49c4e623672218b1749f18470314c52973f43ea1161cb114a912cd",
+        "scanner_version": "skills-guard-v1",
+        "verdict": "caution",
+        "trust_level": "community",
+        "findings": [
+          {
+            "pattern_id": "hardcoded_ip_port",
+            "severity": "medium",
+            "category": "network",
+            "file": "README.md",
+            "line": 62,
+            "match": "\"JF_URL\": \"http://192.168.1.50:8096\",",
+            "description": "hardcoded IP address with port"
+          },
+          {
+            "pattern_id": "hardcoded_ip_port",
+            "severity": "medium",
+            "category": "network",
+            "file": "README.md",
+            "line": 65,
+            "match": "\"HA_URL\": \"http://192.168.1.138:8123\",",
+            "description": "hardcoded IP address with port"
+          },
+          {
+            "pattern_id": "hardcoded_ip_port",
+            "severity": "medium",
+            "category": "network",
+            "file": "README.md",
+            "line": 77,
+            "match": "\"JF_URL\": \"http://192.168.1.50:8096\",",
+            "description": "hardcoded IP address with port"
+          },
+          {
+            "pattern_id": "hardcoded_ip_port",
+            "severity": "medium",
+            "category": "network",
+            "file": "README.md",
+            "line": 90,
+            "match": "\"JF_URL\": \"http://192.168.1.50:8096\",",
+            "description": "hardcoded IP address with port"
+          },
+          {
+            "pattern_id": "hardcoded_ip_port",
+            "severity": "medium",
+            "category": "network",
+            "file": "README.md",
+            "line": 93,
+            "match": "\"ADB_DEVICE\": \"192.168.1.100:5555\",",
+            "description": "hardcoded IP address with port"
+          },
+          {
+            "pattern_id": "unpinned_npm_install",
+            "severity": "medium",
+            "category": "supply_chain",
+            "file": "README.md",
+            "line": 24,
+            "match": "npm install ws",
+            "description": "npm install without version pinning"
+          },
+          {
+            "pattern_id": "sudo_usage",
+            "severity": "high",
+            "category": "privilege_escalation",
+            "file": "README.md",
+            "line": 27,
+            "match": "sudo apt install adb    # Debian/Ubuntu",
+            "description": "uses sudo (privilege escalation)"
+          },
+          {
+            "pattern_id": "hardcoded_ip_port",
+            "severity": "medium",
+            "category": "network",
+            "file": "SKILL.md",
+            "line": 51,
+            "match": "\"JF_URL\": \"http://192.168.1.50:8096\",",
+            "description": "hardcoded IP address with port"
+          },
+          {
+            "pattern_id": "hardcoded_ip_port",
+            "severity": "medium",
+            "category": "network",
+            "file": "SKILL.md",
+            "line": 54,
+            "match": "\"HA_URL\": \"http://192.168.1.138:8123\",",
+            "description": "hardcoded IP address with port"
+          },
+          {
+            "pattern_id": "hardcoded_ip_port",
+            "severity": "medium",
+            "category": "network",
+            "file": "SKILL.md",
+            "line": 73,
+            "match": "\"JF_URL\": \"http://192.168.1.50:8096\",",
+            "description": "hardcoded IP address with port"
+          },
+          {
+            "pattern_id": "hardcoded_ip_port",
+            "severity": "medium",
+            "category": "network",
+            "file": "SKILL.md",
+            "line": 95,
+            "match": "\"JF_URL\": \"http://192.168.1.50:8096\",",
+            "description": "hardcoded IP address with port"
+          },
+          {
+            "pattern_id": "hardcoded_ip_port",
+            "severity": "medium",
+            "category": "network",
+            "file": "SKILL.md",
+            "line": 98,
+            "match": "\"ADB_DEVICE\": \"192.168.1.100:5555\",",
+            "description": "hardcoded IP address with port"
+          },
+          {
+            "pattern_id": "hardcoded_ip_port",
+            "severity": "medium",
+            "category": "network",
+            "file": "SKILL.md",
+            "line": 115,
+            "match": "| `JF_URL`      | **Yes**  | Base URL of your Jellyfin server, e.g. `http://192.168.1.50:8096` |",
+            "description": "hardcoded IP address with port"
+          },
+          {
+            "pattern_id": "hardcoded_ip_port",
+            "severity": "medium",
+            "category": "network",
+            "file": "SKILL.md",
+            "line": 127,
+            "match": "| `HA_URL`           | HA        | Home Assistant URL, e.g. `http://192.168.1.138:8123`                  |",
+            "description": "hardcoded IP address with port"
+          },
+          {
+            "pattern_id": "hardcoded_ip_port",
+            "severity": "medium",
+            "category": "network",
+            "file": "SKILL.md",
+            "line": 132,
+            "match": "| `ADB_DEVICE`       | AndroidTV | TV address for ADB, e.g. `192.168.1.100:5555`                        |",
+            "description": "hardcoded IP address with port"
+          },
+          {
+            "pattern_id": "unpinned_npm_install",
+            "severity": "medium",
+            "category": "supply_chain",
+            "file": "SKILL.md",
+            "line": 214,
+            "match": "| Extra dependency    | None                  | `npm install ws`        | `apt install adb`           | None           |",
+            "description": "npm install without version pinning"
+          },
+          {
+            "pattern_id": "sudo_usage",
+            "severity": "high",
+            "category": "privilege_escalation",
+            "file": "SKILL.md",
+            "line": 107,
+            "match": "> **First time with ADB:** Enable Developer Options on your TV (Settings → About → tap Build Number 7 times), then en...",
+            "description": "uses sudo (privilege escalation)"
+          },
+          {
+            "pattern_id": "hardcoded_ip_port",
+            "severity": "medium",
+            "category": "network",
+            "file": "tv.js",
+            "line": 29,
+            "match": "adbDevice: process.env.ADB_DEVICE || '', // e.g. \"192.168.1.100:5555\"",
+            "description": "hardcoded IP address with port"
+          },
+          {
+            "pattern_id": "hardcoded_ip_port",
+            "severity": "medium",
+            "category": "network",
+            "file": "tv.js",
+            "line": 243,
+            "match": "throw new Error('ADB_DEVICE not configured. Set it to \"TV_IP:5555\" (e.g. \"192.168.1.100:5555\").');",
+            "description": "hardcoded IP address with port"
+          },
+          {
+            "pattern_id": "unpinned_npm_install",
+            "severity": "medium",
+            "category": "supply_chain",
+            "file": "tv.js",
+            "line": 351,
+            "match": "'Install: npm install ws\\n' +",
+            "description": "npm install without version pinning"
+          },
+          {
+            "pattern_id": "sudo_usage",
+            "severity": "high",
+            "category": "privilege_escalation",
+            "file": "tv.js",
+            "line": 233,
+            "match": "'  • Debian/Ubuntu: sudo apt install adb\\n' +",
+            "description": "uses sudo (privilege escalation)"
+          }
+        ],
+        "rules": [
+          "hardcoded_ip_port",
+          "sudo_usage",
+          "unpinned_npm_install"
+        ],
+        "scanned_at": "2026-07-29T02:32:25.884829+00:00",
+        "summary": "jellyfin-control: caution — 21 finding(s) in network, privilege_escalation, supply_chain",
+        "fresh": false
+      },
+      "installed_at": "2026-07-29T02:32:50.786840+00:00",
+      "updated_at": "2026-07-29T02:32:50.786840+00:00"
+    }
+  }
+}
