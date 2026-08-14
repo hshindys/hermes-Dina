@@ -225,7 +225,7 @@ mcp_servers:
     args:
       - -y
       - obsidian-mcp
-      - D:/document/Dina
+      - D:/vaults/dina
     timeout: 120
     connect_timeout: 60
   zapier:

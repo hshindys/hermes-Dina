@@ -1,28 +1,38 @@
 #!/usr/bin/env python3
-"""Dina Islamic Prayer Reminder with full Adhkar, Duas, and Tasbeeh.
-Fetches live Cairo prayer times from aladhan.
+"""Dina Islamic Prayer Reminder — Cairo prayer times via aladhan.com API.
+Uses PowerShell (NOT bash date) for correct Cairo time on Windows.
 Usage: dina_prayer_check.py <PRAYER>   (PRAYER = Fajr|Dhuhr|Asr|Maghrib|Isha)
 """
-import sys, urllib.request, json, datetime
+import sys, urllib.request, json, subprocess, re
 
 PRAYER = sys.argv[1] if len(sys.argv) > 1 else "Fajr"
 
 PRAYER_AR = {"Fajr": "الفجر", "Dhuhr": "الظهر", "Asr": "العصر",
              "Maghrib": "المغرب", "Isha": "العشاء"}
 
-# Job IDs for user to manage
 PRAYER_JOB_ID = {"Fajr": "dina-fajr", "Dhuhr": "dina-dhuhr", "Asr": "dina-asr",
                  "Maghrib": "dina-maghrib", "Isha": "dina-isha"}
 
-# Tasbeeh (dhikr after prayer)
 TASBEEH = [
     "سبحان الله (33 مرة) 🌿",
-    "الحمد لله (33 مرة) 🌿", 
+    "الحمد لله (33 مرة) 🌿",
     "الله أكبر (34 مرة) 🌿",
 ]
 
-# Shahada closing
 SHAHADA = "لا إله إلا الله وحده لا شريك له، له الملك وله الحمد وهو على كل شيء قدير"
+
+def get_cairo_time():
+    """Get correct Cairo time via PowerShell (bash `date` is ~3h behind Windows)."""
+    try:
+        result = subprocess.run(
+            ["powershell", "-Command", "Get-Date -Format 'HH:mm'"],
+            capture_output=True, text=True, timeout=10
+        )
+        raw = result.stdout.strip()
+        time_str = re.sub(r"[^0-9: ]", "", raw).strip()
+        return time_str if time_str else None
+    except Exception:
+        return None
 
 def get_times():
     url = "https://api.aladhan.com/v1/timingsByCity?city=Cairo&country=Egypt&method=5"
@@ -59,7 +69,12 @@ def build(pray_ar, pray_time, date_str, job_id):
     L.append("🤲 التوسل بنبيك محمد ﷺ:")
     L.append("اللهم إني أسألك وأتوسل إليك بنبيك محمد نبي الرحمة، يا محمد إني أتوسل بك إلى ربي في حاجتي هذه، (قول حاجتك) اللهم شفعه فينا، اللهم آمين.")
     L.append("")
-    L.append("🕐 موعد اليوم: " + pray_time + " (توقيت القاهرة) — " + date_str)
+    L.append("\n")
+    L.append("🕐 موعد الصلاة: " + pray_time + " (توقيت القاهرة) — " + date_str)
+    # Add current Cairo time for reference (via PowerShell, NOT bash date)
+    cairo_now = get_cairo_time()
+    if cairo_now:
+        L.append("🕐 الوقت الحالي في القاهرة: " + cairo_now + " (من PowerShell)")
     L.append("")
     L.append("To stop or manage this job, send me a new message (e.g. \"stop reminder 📿 Islamic " + pray_ar + " Reminder\").")
     L.append("🤲 اللهم تقبل صلاتنا وقيامنا")
